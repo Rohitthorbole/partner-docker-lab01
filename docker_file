@@ -1,0 +1,51 @@
+FROM ubuntu
+MAINTAINER rohit
+RUN apt-get update
+CMD ["echo", "Hello From rohit"]
+
+1) Docker -> FROM
+
+- From  instruction set the base image for the dockerfile
+- Syntax : FROM <image>:tags
+- exp : FROM ubuntu
+
+2) Docker Image Layer 
+
+- docker image consists of the layers
+- every single instruction will work like single layer
+- FROM will have separe layer, CMD will have separate layer etc....
+
+3) Docker -> RUN
+
+- will run one or more commands in new image layer and commit the result
+- syntax : RUN <command>
+- exp : 
+RUN apt-get update
+RUN apt-get install -y vim
+ This will add 2 layers
+
+- Recommenmded way is to use multiple commands like one line command
+- ex : 
+RUN apt-get update && apt-get install -y \
+vim \
+git
+
+This will add only one layer
+
+4) Docker History
+
+- used to inspect the layres of the image
+- Syntax : docker history <image_name>
+
+
+5) Docker CMD
+
+- used to specify the commands when the container started
+- Syntax : CMD["executable(command)", "param1","param2"]
+- only one CMD instruction should exists in docker file
+- if you add more than one, only the last CMD command will take effect
+
+6) Docker File -> CMD vs RUN
+
+CMD - execute at runtime
+RUN - execute at buid time
