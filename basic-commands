@@ -66,5 +66,13 @@ create and run container + echo test + then delete it
 
 Use it like one time
 
-
 docker inspect
+
+- to inspect the metadata of the container
+
+docker container my-container
+
+docker logs
+
+docker logs my-container
+docker logs -f my-container
