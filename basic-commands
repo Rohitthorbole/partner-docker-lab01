@@ -18,3 +18,53 @@ Syntax : docker ps[OPTIONS]
 
 docker ps
 docker ps -a / --all
+
+Docker Start and stop
+
+docker start containerName/containerId
+docker start containerName/containerId
+
+Docker exec : 
+
+Used to interact with the container
+
+docker exec my-container ls /usr/src/app
+
+options : 
+i - for interactive , keeps container stdin open, allow you to send the input
+
+docker exec -i my-container cat /etc/hostname
+
+Opening a terminal inside terminal
+
+docker -i -t my-container /bin/bash
+docker -it my-container /bin/bash
+
+To remove a container:
+docker rm <container_id_or_name>
+
+To remove a image:
+docker rmi <image_id_or_name>
+
+
+If you want to clean up everything in one go:
+
+
+docker container prune   # removes all stopped containers
+docker image prune       # removes unused images
+
+
+Docker Run
+
+docker run = docker pull + docker create + docker start
+docker run --name cont1 -it ubuntu:latest /bin/bash
+
+First, it will try to locate image locally, if not avaialble, it will pull from the docker hub, and then start the same.
+
+docker run --rm ubuntu echo "Test"
+create and run container + echo test + then delete it
+
+Use it like one time
+
+
+docker inspect
