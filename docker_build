@@ -1,0 +1,5 @@
+1) docker build command :
+- Syntax : docker build [OPTIONS] PATH | URL
+PATH - The build context - usually the working directory
+
+- ex : docker build -t myapp .
