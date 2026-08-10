@@ -3,3 +3,11 @@
 PATH - The build context - usually the working directory
 
 - ex : docker build -t myapp .
+
+- by default, docker looks for a file named Dockerfile, but you can specify different name also.
+
+2) Docker build command for the different file name and build copntext path
+
+- ex : docker build -f /path/test.txt -t image3 /imagefile
+    - Build the image image3 from the test.txt file 
+    - The /imagefile is build context
