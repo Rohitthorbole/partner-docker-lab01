@@ -1,0 +1,47 @@
+1) docker expose
+
+- Purpose: Documents which port(s) the containerized app listens on.
+- ex: EXPOSE 80
+- This doesn’t publish the port; it just declares it. You still need -p in docker run to map it.
+
+2) COPY 
+
+- copies files from your host into the image.
+- ex: COPY ./app /usr/src/app
+
+
+3) WORKDIR
+- Sets the working directory inside the container for subsequent instructions (RUN, CMD, COPY, etc.).
+
+- ex : WORKDIR /usr/src/app
+        COPY . .
+        RUN npm install
+4) ENV
+- Defines environment variables inside the container.
+- ex :  ENV PORT=8080
+        ENV NODE_ENV=production
+5) LABEL
+
+- Adds metadata to your image (key‑value pairs).
+- ex :  LABEL maintainer="rohit@example.com"
+        LABEL version="1.0"
+        LABEL description="My sample app image"
+
+
+Putting it together
+
+FROM ubuntu:20.04
+
+LABEL maintainer="rohit@example.com"
+LABEL version="1.0"
+LABEL description="Demo app with Git installed"
+
+WORKDIR /app
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y git
+
+COPY . .
+
+CMD ["bash"]
