@@ -1,0 +1,46 @@
+Docker Registry
+
+1) Image Tag
+ex : docker run postgres:10.10
+    here, whaterver value after : is the version of the Image
+    If we didnt specify, it will take latest by default
+
+2) Docker Registry - Pushing Images
+
+- You can have your Private or Public Repo
+
+3) Docker Image Naming Convention
+
+- syntax : registry/username_or_org/repository:tag
+    registry - (Optional) domain of the container registry - default to docker.io
+    username_or_org - name of user or org(required for non-official images only)
+    repository - the name of the image or the project
+
+4) Rename Image
+
+- used to add a new name (or alias) to an existing Docker Image 
+- syntax : docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+- ex : docker tag python:3.10 my-python-app:latest
+
+
+for docker registry
+- Syntax : docker tag SOURCE_IMAGE REGESTRY_HOST/USERNAME/REPO:TAG
+- ex : docker tag myapp registry.mycorp.com/devops/myapp:1.0.0
+
+5) Docker Registry - Login Command
+- you have to login to the docker hub to push the image to repo
+- syntax : docker login registry_host
+
+For dockerHub , you do not need to specify the registry as it default to docker.io
+
+- syntax : docker tag LOCAL_IMAGE_NAME:TAG USERNAME/REPO:TAG
+
+6) Docker Registry - docker push command 
+- docker push uploads a locally tag resource to the docker registry (like docker hub, Github container registry, AWS ECR)
+
+- Syntax : docker push [REGISTRY_HOST]/USERNAME/REPO:TAG
+
+for docker : docker push myapp myusername/myapp:latest
+for generic registry : docker push registry.mycorp.com/devops/myapp:10.0.0
+
+Lets Revised - Docker Image Lifecycle
