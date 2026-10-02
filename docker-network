@@ -1,0 +1,29 @@
+1) To list the available network
+
+  docker network ls
+
+2) To create new network with specific name
+
+  docker network create <NAME>
+
+3) To create network with custom subnet
+
+  docker network --subnet <YOUR-SUBNET_10.0.0.0/16> <NAME>
+
+4) Inspect a docker network
+
+  docker network inspect <network-name or ID>
+
+5) Run a new container and connect to desired docker network
+
+  docker run --network <NETWORK-NAME> <IMAGE-NAME>
+
+6) Connect a running docker container to a Docker network
+
+  docker network connect <NETWORK-NAME> <CONTAINER-NAME>
+
+7) Disconnect running container from docker network
+
+  docker network disconnect <NETWORK-NAME> <CONTAINER-NAME>
+
+  
