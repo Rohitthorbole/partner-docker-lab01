@@ -1,0 +1,24 @@
+# Docker Volume
+
+1) Create a new named volume
+  docker volume create <VOLNAME>
+
+2) List available volumes
+  docker volume ls
+
+3) Show details/inspect volume
+  docker volume inspect <VOLNAME>
+
+4) delete docker volume
+  docker volume rm <VOLNAME>
+
+
+# Docker Run command options with Docker volumes
+
+1) -v [VOLNAME]:[container_directory]
+2) -v [VOLNAME]:[container_directory]:ro/wo -> with specific permission
+
+# Docker run command and bind mounting options
+
+1) docker run -v /home/user/project:/cont-dir myimage
+  
